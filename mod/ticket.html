@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form name="input" action="http://localhost:12345/recvTicket" method="post">
+    <h1>选票</h1>
+    <table border="1">
+        <tr>
+            <td>姓名</td>
+            <td>自我介绍</td>
+            <td>选择</td>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.Name}}</td>
+            <td>{{.Introduction}}</td>
+            <td><input type="checkbox" name="{{.ID}}"></td>
+        </tr>
+        {{end}}
+    </table>
+    <input type="submit" value="Submit">
+</form>
+</form>
+</body>
+</html>

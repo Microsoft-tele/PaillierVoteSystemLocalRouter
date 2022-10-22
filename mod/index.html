@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<div>
+    {{.}}
+    <div>
+        <a href="http://localhost:8080/downloadPaillierPublicKey">
+            <button>
+                下载Paillier公钥
+            </button>
+        </a>
+    </div>
+    <div>
+        <a href="http://localhost:12345/uploadPaillier">
+            <button>
+                上传paillier公钥到本地处理器
+            </button>
+        </a>
+    </div>
+    <div>
+        <a href="http://localhost:8080/ticket">
+            <button>
+                获取选票（没上上诉三个文件前的投票是无效的）
+            </button>
+        </a>
+    </div>
+</div>
+</body>
+</html>
