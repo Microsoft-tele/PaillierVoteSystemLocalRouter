@@ -41,7 +41,7 @@ func GetKeysFromJson() (key *paillier.PrivateKey) {
 
 // GetPubKeyFromJson 固定路径获取公钥
 func GetPubKeyFromJson() (paillier.PublicKey, error) {
-	filepath := "../paillierKey/key.json"
+	filepath := "../paillierKey/key"
 	var PubKey paillier.PublicKey
 	PubKeysSlice := FileUtils.ReadFileContent(filepath)
 	err := json.Unmarshal([]byte(PubKeysSlice[0]), &PubKey)
