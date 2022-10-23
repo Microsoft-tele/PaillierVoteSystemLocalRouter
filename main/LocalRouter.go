@@ -62,9 +62,11 @@ func RecvTicket(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var CandidateNameList []string // 候选人姓名列表
-	var Option [][]byte            // 加密的选项
+	//var Option [][]byte            // 加密的选项
 	CandidateNameList = make([]string, 0)
-	Option = make([][]byte, 0)
+	//Option = make([][]byte, 0)
+	var NameAndOption map[string][]byte // 候选人姓名和投票选项绑定在一个map中
+	NameAndOption = make(map[string][]byte)
 
 	err := r.ParseForm() // 解析post表单
 	if err != nil {
@@ -81,13 +83,14 @@ func RecvTicket(w http.ResponseWriter, r *http.Request) {
 			intJ, _ := strconv.Atoi(j)
 			total += intJ
 		}
-		CandidateNameList = append(CandidateNameList, k) // 添加候选人姓名
-		mOption := new(big.Int).SetInt64(int64(total))   // 加密每一个人的结果
+		//CandidateNameList = append(CandidateNameList, k) // 添加候选人姓名
+		mOption := new(big.Int).SetInt64(int64(total)) // 加密每一个人的结果
 		cOption, err := paillier.Encrypt(&PublicKey, mOption.Bytes())
 		if err != nil {
 			fmt.Println("加密失败:", err)
 		}
-		Option = append(Option, cOption)
+		//Option = append(Option, cOption)
+		NameAndOption[k] = cOption
 		fmt.Printf("[%v : %v]\n", k, total) // 曲线救国，打印调试信息
 	}
 	fmt.Println("Paillier加密成功:")
@@ -112,10 +115,10 @@ func RecvTicket(w http.ResponseWriter, r *http.Request) {
 
 	//fmt.Println(CandidateNameList, Option)
 	Ticket := VoteUtils.BallotTicket{} // 开始生成完整选票
-	Ticket.InitBallotTicket(CandidateNameList, VoterName, Option, RsaPubKey, cipherOfNmae)
+	Ticket.InitBallotTicket(CandidateNameList, VoterName, NameAndOption, RsaPubKey, cipherOfNmae)
 	TicketJson, err := json.Marshal(Ticket)
-	fmt.Println("TicketJson:")
-	fmt.Println(TicketJson)
+	//fmt.Println("TicketJson:")
+	//fmt.Println(TicketJson)
 	SendCipherToRemote(TicketJson)
 
 	files, _ := template.ParseFiles("../mod/index.html")
@@ -146,7 +149,7 @@ func RecvPaillierPubKey(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	savePath := "../paillierKey/" + m.Filename
-	fmt.Println(m.Filename)
+	//fmt.Println(m.Filename)
 	openFile, err := os.OpenFile(savePath, os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0666) // 这里最后要设置一下暂存密钥文件的地方
 	if err != nil {
 		fmt.Println("Create fil err:", err)
@@ -163,7 +166,7 @@ func RecvPaillierPubKey(w http.ResponseWriter, r *http.Request) {
 	if err1 != nil {
 		return
 	}
-	fmt.Println(PublicKey)
+	//fmt.Println(PublicKey)
 	fmt.Println("成功读取PaillierPubKey")
 	files, err := template.ParseFiles("../mod/index.html")
 	err = files.Execute(w, "成功上传Paillier公钥")
