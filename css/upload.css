@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+#box {
+    position: absolute;
+    width: 60%;
+    height: 55%;
+    margin: 0 auto;
+    margin-top: 8%;
+    margin-left: 20%;
+    text-align: center;
+    background: #ffffff;
+    border:1px solid;
+}
+
+.tab {
+    position: relative;
+    width: auto;
+}
+
+.tab .tab_list {
+    height: 3.2vw;
+    width: auto;
+    border: 0px solid #ccc;
+    background-color: #4f4f4f;
+}
+
+.tab .tab_list li {
+    float: left;
+    height: 3vw;
+    width: 8vw;
+    line-height:3vw;
+    padding: 0 1vw;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.3vw ;
+    background-color: #4f4f4f;
+    color: #ffffff;
+}
+
+.tab_list .current {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color: #000000;
+}
+
+.tab_con .item .form {
+    position: relative;
+    margin-top: 15%;
+    margin-left: 25%;
+    width: 50%;
+    height: auto;
+}
+
+#select {
+    font-size: 1.5vw;
+}
+
+#select:hover {
+    cursor: pointer;
+}
+
+#submit {
+    font-size: 1.5vw;
+    margin-top: 20%;
+    width: 40%;
+    border-radius: 2vw;
+}
+
+#submit:hover {
+    cursor: pointer;
+}

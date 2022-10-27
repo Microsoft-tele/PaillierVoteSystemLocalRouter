@@ -3,31 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
-<div>
-    {{.}}
-    <div>
-        <a href="http://localhost:8080/downloadPaillierPublicKey">
-            <button>
-                下载Paillier公钥
-            </button>
-        </a>
-    </div>
-    <div>
-        <a href="http://localhost:12345/uploadPaillier">
-            <button>
-                上传paillier公钥到本地处理器
-            </button>
-        </a>
-    </div>
-    <div>
-        <a href="http://localhost:8080/ticket">
-            <button>
-                获取选票（没上上诉三个文件前的投票是无效的）
-            </button>
-        </a>
+<div id="box">
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">参与选票</li>
+                <li>查看结果</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block">
+                <h2>注意事项：</h2>
+                <p>1.在进行投票前，请上传Paillier公钥,否则您的投票会被视为无效投票</p>
+                <p>2.若您没有Paillier公钥，<a href="http://47.100.188.70/downloadPaillierPublicKey">请点击这里获取Paillier公钥</a></p>
+                <p>3.请确保您上传的key文件无误，否则您的投票会被视为无效投票</p>
+                <p>4.若您有无法解决的问题，<a href="#">请联系我们获取帮助</a></p>
+                <div class="btn">
+                    <a href="http://localhost:12345/uploadPaillier">
+                        <button id="btn1">
+                            上传paillier公钥
+                        </button>
+                    </a>
+                    <a href="http://47.100.188.70/ticket">
+                        <button id="btn2">
+                            获取选票
+                        </button>
+                    </a>
+                    <p class="tip">错误</p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="btn0">
+                    <a href="http://47.100.188.70/showResult" target="_blank">
+                        <button id="btn3">查看结果</button>
+                    </a>
+                    <a href="http://47.100.188.70/selectVoter" target="_blank">
+                        <button id="btn4">验证签名</button>
+                    </a>
+<!--                    <p class="tip">错误</p>-->
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+<script>
+    var tab_list = document.querySelector('.tab_list');
+    var lis = tab_list.querySelectorAll('li');
+    var items = document.querySelectorAll('.item');
+
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].setAttribute('index', i);
+        lis[i].onclick = function () {
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = '';
+            }
+            this.className = 'current';
+            var index = this.getAttribute('index');
+
+            for (var i = 0; i < items.length; i++) {
+                items[i].style.display = 'none';
+            }
+            items[index].style.display = 'block';
+        };
+    }
+</script>
 </body>
+
 </html>
