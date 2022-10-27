@@ -25,6 +25,8 @@ var VoterName string
 
 func main() {
 	// 使用restful设计方式
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("../css/"))))
+
 	http.HandleFunc("/index", Index)
 
 	http.HandleFunc("/uploadPaillier", UploadPaillier) // 请求上传文件的界面，并上传本地paillier公钥
@@ -180,7 +182,7 @@ func RecvPaillierPubKey(w http.ResponseWriter, r *http.Request) {
 
 func SendCipherToRemote(Ticket []byte) {
 	fmt.Println(string(Ticket))
-	resp, err := http.PostForm("http://127.0.0.1:8080/recvTicket",
+	resp, err := http.PostForm("http://47.100.188.70/recvTicket",
 		url.Values{"Ticket": {string(Ticket)}})
 
 	if err != nil {
