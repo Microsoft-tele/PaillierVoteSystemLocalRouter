@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+#box {
+    position: absolute;
+    width: 60%;
+    height: 55%;
+    margin: 0 auto;
+    margin-top: 8%;
+    margin-left: 20%;
+    text-align: center;
+    background: #ffffff;
+    border:1px solid;
+}
+
+.tab {
+    position: relative;
+    width: auto;
+}
+
+.tab .tab_list {
+    height: 3.2vw;
+    width: auto;
+    border: 0px solid #ccc;
+    background-color: #4f4f4f;
+}
+
+.tab .tab_list li {
+    float: left;
+    height: 3vw;
+    width: 8vw;
+    line-height:3vw;
+    padding: 0 1vw;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.3vw ;
+    background-color: #4f4f4f;
+    color: #ffffff;
+}
+
+.tab_list .current {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color: #000000;
+}
+
+.item {
+    display: none;
+}
+
+.tab_con {
+    position: relative;
+    margin-left: 2vw;
+    margin-top: 2vw;
+    text-align: left;
+}
+
+.tab_con .item h2 {
+    padding: 0.2vw 0;
+}
+
+.tab_con .item a:hover {
+    color: #499eff;
+}
+
+.tab_con .item p {
+    font-size: 1vw;
+    padding: 0.1vw 0;
+}
+
+.tab_con .item .btn {
+    position: absolute;
+    height: auto;
+    margin-top: 4vw;
+    margin-left: 35%;
+}
+
+.tab_con .item .btn #btn1 {
+    text-decoration: none;
+    border: 0.1vw solid #000000;
+    border-radius: 5vw;
+    color: #000000;
+    margin: 8% 0 2% 0;
+    width: 100%;
+    height: auto;
+    font-size: 1.5vw;
+}
+
+.tab_con .item .btn #btn1:hover {
+    cursor: pointer;
+    color: #0080ff;
+}
+
+.tab_con .item .btn #btn2 {
+    text-decoration: none;
+    border: 0.1vw solid #000000;
+    border-radius: 5vw;
+    color: #000000;
+    margin: 8% 0 2% 0;
+    width: 100%;
+    font-size: 1.5vw;
+}
+
+.tab_con .item .btn #btn2:hover {
+    cursor: pointer;
+    color: #0080ff;
+}
+
+.tab_con .item .btn0 {
+    position: absolute;
+    height: auto;
+    margin-top: 4vw;
+    margin-left: 35%;
+}
+
+.tab_con .item .btn0 #btn3 {
+    text-decoration: none;
+    border: 0.1vw solid #000000;
+    border-radius: 5vw;
+    color: #000000;
+    margin: 15% 0 2% 0;
+    width: 100%;
+    height: auto;
+    font-size: 1.5vw;
+}
+
+.tab_con .item .btn0 #btn3:hover {
+    cursor: pointer;
+    color: #0080ff;
+}
+
+.tab_con .item .btn0 #btn4 {
+    text-decoration: none;
+    border: 0.1vw solid #000000;
+    border-radius: 5vw;
+    color: #000000;
+    margin: 35% 0 2% 0;
+    width: 100%;
+    font-size: 1.5vw;
+}
+
+.tab_con .item .btn0 #btn4:hover {
+    cursor: pointer;
+    color: #0080ff;
+}
+
+.tab_con .item .tip {
+    margin: 7% 0 2% 40%;
+    font-size: 1.5vw;
+    color: #ff0000;
+}
