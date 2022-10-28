@@ -7,26 +7,34 @@
   <link rel="stylesheet" href="/css/upload.css">
 </head>
 <body>
-<!--recvPaillierPubKey-->
-
-
-<div id="box">
-    <div class="tab">
-        <div class="tab_list">
-            <ul>
-              <li class="current">上传密钥</li>
-            </ul>
-        </div>
-        <div class="tab_con">
-            <div class="item" style="display: block">
-                <form class="form" action="http://localhost:12345/{{.}}" method="post" enctype="multipart/form-data">
-                    <input id="select" type="file" name="{{.}}"><br>
-                    <input id="submit" type="submit" value="提交">
-                </form>
+    <div id="box">
+        <div class="tab">
+            <div class="tab_list">
+                <ul>
+                  <li class="current">上传密钥</li>
+                </ul>
+            </div>
+            <div class="tab_con">
+                <div class="item" style="display: block">
+                    <form class="form" action="http://localhost:12345/{{.}}" method="post" enctype="multipart/form-data">
+                        <input id="select" type="file" name="{{.}}"><br>
+                        <input id="submit" type="submit" value="提交">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="square">
+        <ul class="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 
 </body>
 </html>
