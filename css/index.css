@@ -18,13 +18,15 @@ li {
 
 #box {
     position: relative;
-    width: 60%;
-    height: 55%;
+    width: 60vw;
+    height: 30vw;
     margin: 0 auto;
     margin-left: 20%;
     text-align: center;
     background: #ffffff;
     border:1px solid;
+    display: flex;
+    flex-direction: column;
 }
 
 .tab {
@@ -35,7 +37,7 @@ li {
 .tab .tab_list {
     height: 3.2vw;
     width: auto;
-    border: 0px solid #ccc;
+    border: 0 solid #ccc;
     background-color: #4f4f4f;
 }
 
@@ -50,6 +52,7 @@ li {
     border-radius: 0.3vw ;
     background-color: #4f4f4f;
     color: #ffffff;
+    font-size: 2vw;
 }
 
 .tab_list .current {
@@ -70,6 +73,7 @@ li {
 }
 
 .tab_con .item h2 {
+    font-size: 2vw;
     padding: 0.2vw 0;
 }
 
@@ -86,40 +90,32 @@ li {
     padding: 0.1vw 0;
 }
 
-.tab_con .item .btn {
-    position: absolute;
-    height: auto;
-    margin-top: 4vw;
-    margin-left: 35%;
-}
-
-.tab_con .item .btn #btn1 {
-    text-decoration: none;
+#btn1 {
     border: 0.1vw solid #000000;
     border-radius: 5vw;
     color: #000000;
-    margin: 8% 0 2% 0;
-    width: 100%;
-    height: auto;
-    font-size: 1.5vw;
+    font-size: 1vw;
+    margin: 4vw 0vw 1vw 22vw;
+    width: 15vw;
+    height: 2vw;
 }
 
-.tab_con .item .btn #btn1:hover {
+#btn1:hover {
     cursor: pointer;
     color: #0080ff;
 }
 
-.tab_con .item .btn #btn2 {
-    text-decoration: none;
+#btn2 {
     border: 0.1vw solid #000000;
     border-radius: 5vw;
     color: #000000;
-    margin: 8% 0 2% 0;
-    width: 100%;
-    font-size: 1.5vw;
+    font-size: 1vw;
+    margin: 1vw 0vw 1vw 22vw;
+    width: 15vw;
+    height: 2vw;
 }
 
-.tab_con .item .btn #btn2:hover {
+#btn2:hover {
     cursor: pointer;
     color: #0080ff;
 }
@@ -131,39 +127,38 @@ li {
     margin-left: 35%;
 }
 
-.tab_con .item .btn0 #btn3 {
-    text-decoration: none;
+#btn3 {
     border: 0.1vw solid #000000;
     border-radius: 5vw;
     color: #000000;
-    margin: 15% 0 2% 0;
-    width: 100%;
-    height: auto;
-    font-size: 1.5vw;
+    font-size: 1vw;
+    margin: 4vw 0 1vw 0;
+    width: 15vw;
+    height: 2vw;
 }
 
-.tab_con .item .btn0 #btn3:hover {
+#btn3:hover {
     cursor: pointer;
     color: #0080ff;
 }
 
-.tab_con .item .btn0 #btn4 {
-    text-decoration: none;
+#btn4 {
     border: 0.1vw solid #000000;
     border-radius: 5vw;
     color: #000000;
-    margin: 35% 0 2% 0;
-    width: 100%;
-    font-size: 1.5vw;
+    font-size: 1vw;
+    margin: 2vw 0 1vw 0;
+    width: 15vw;
+    height: 2vw;
 }
 
-.tab_con .item .btn0 #btn4:hover {
+#btn4:hover {
     cursor: pointer;
     color: #0080ff;
 }
 
 .tab_con .item .tip {
-    margin: 7% 0 2% 40%;
+    margin: 1vw 0vw 1vw 22vw;
     font-size: 1.5vw;
     color: #ff0000;
 }
