@@ -29,6 +29,8 @@ func main() {
 
 	http.HandleFunc("/index", Index)
 
+	http.HandleFunc("/", Index)
+
 	http.HandleFunc("/uploadPaillier", UploadPaillier) // 请求上传文件的界面，并上传本地paillier公钥
 
 	http.HandleFunc("/recvPaillierPubKey", RecvPaillierPubKey) // upload.html 提交的页面，本页面会返回302，并在后台对选票进行paillier加密，再上传至远程服务器
@@ -121,7 +123,8 @@ func RecvTicket(w http.ResponseWriter, r *http.Request) {
 	TicketJson, err := json.Marshal(Ticket)
 	//fmt.Println("TicketJson:")
 	//fmt.Println(TicketJson)
-	SendCipherToRemote(TicketJson)
+	SendCipherToRemote(TicketJson, "http://47.100.188.70/recvTicket") // 向数据服务器发送选票数据
+	//SendCipherToRemote(TicketJson, "http://47.100.188.70/recvTicket") // 向区块链服务器发送选票数据
 
 	files, _ := template.ParseFiles("../mod/index.html")
 	files.Execute(w, "成功递交选票")
@@ -180,9 +183,9 @@ func RecvPaillierPubKey(w http.ResponseWriter, r *http.Request) {
 	//w.WriteHeader(302)
 }
 
-func SendCipherToRemote(Ticket []byte) {
+func SendCipherToRemote(Ticket []byte, serverUrl string) {
 	fmt.Println(string(Ticket))
-	resp, err := http.PostForm("http://47.100.188.70/recvTicket",
+	resp, err := http.PostForm(serverUrl,
 		url.Values{"Ticket": {string(Ticket)}})
 
 	if err != nil {
