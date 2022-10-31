@@ -124,7 +124,7 @@ func RecvTicket(w http.ResponseWriter, r *http.Request) {
 	//fmt.Println("TicketJson:")
 	//fmt.Println(TicketJson)
 	SendCipherToRemote(TicketJson, "https://404060p9q5.zicp.fun/recvTicket") // 向数据服务器发送选票数据
-	SendCipherToRemote(TicketJson, "http://ivxq5w.natappfree.cc/data/new")   // 向区块链服务器发送选票数据
+	SendCipherToRemote(TicketJson, "http://192.168.1.114:5000/data/new")     // 向区块链服务器发送选票数据
 
 	files, _ := template.ParseFiles("../mod/index.html")
 	files.Execute(w, "成功递交选票")
